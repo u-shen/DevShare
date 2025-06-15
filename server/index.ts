@@ -1,5 +1,6 @@
-import express from "express";
 import dotenv from "dotenv";
+import express from "express";
+import expressLayout from "express-ejs-layouts";
 import { postRouter } from "../routes/post.ts";
 dotenv.config();
 const app = express();
@@ -7,10 +8,17 @@ const app = express();
 //  │ REQUEST HANDLERS:                                                       │
 //  ╰─────────────────────────────────────────────────────────────────────────╯
 app.use(express.json());
+app.use(express.static("public"));
+app.use(expressLayout);
+//  ╭─────────────────────────────────────────────────────────────────────────╮
+//  │ VIEWS:                                                                  │
+//  ╰─────────────────────────────────────────────────────────────────────────╯
+app.set("view engine", "ejs");
+app.set("layout", "layouts/layout");
 //  ╭─────────────────────────────────────────────────────────────────────────╮
 //  │ Routes Handllers:                                                       │
 //  ╰─────────────────────────────────────────────────────────────────────────╯
-app.use("/post", postRouter);
+app.use("/", postRouter);
 //  ╭─────────────────────────────────────────────────────────────────────────╮
 //  │ RUN SERVER:                                                             │
 //  ╰─────────────────────────────────────────────────────────────────────────╯

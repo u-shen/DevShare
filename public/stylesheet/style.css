@@ -1,0 +1,115 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
+	color: currentColor;
+}
+body {
+	font-family: Tahoma, sans-serif;
+}
+header,
+.container {
+	max-width: 90%;
+	margin: 0 auto;
+	padding: 5px 10px;
+}
+.container {
+	margin: 25px auto;
+}
+header nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.auth button {
+	padding: 10px 15px;
+	font-weight: bold;
+	border: none;
+	background: transparent;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.auth button.login {
+	background: #0075ff;
+	color: #e3e3e3;
+}
+
+.auth button:hover {
+	background: #005ac5;
+}
+
+.auth button.sign:hover {
+	background: #0075ffa3;
+}
+/* ╭──────────────────────────────────────────────────────────────────────╮*/
+/* │ POST                                                                 │*/
+/* ╰──────────────────────────────────────────────────────────────────────╯*/
+.post-container {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 10px;
+}
+
+.post-container:not(:last-child) {
+	border-bottom: 2px solid #eee;
+}
+
+.like button {
+	cursor: pointer;
+	padding: 2px;
+	border: none;
+	border-radius: 4px;
+}
+
+.post,
+.post-meta-data {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.post-data .title:hover,
+.post-data .url:hover,
+.post-data .comment:hover {
+	color: #0075ff;
+	cursor: pointer;
+}
+
+.post-data .url,
+.post-data .comment {
+	font-size: smaller;
+	color: #888;
+	padding: 2px 4px;
+}
+
+.post-data .comment {
+	border: 2px solid #0075ffa3;
+	border-radius: 4px;
+}
+
+.post-data .comment:hover {
+	background: #0075ff;
+	color: #e3e3e3;
+}
+
+.post-container .post-data {
+	display: flex;
+	gap: 10px;
+}
+
+.post-meta-data {
+	font-size: 14px;
+	color: #888;
+}
+
+.post-meta-data span {
+	width: 1px;
+	height: 15px;
+	background: #888;
+}

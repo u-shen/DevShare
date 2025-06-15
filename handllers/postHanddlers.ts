@@ -1,11 +1,21 @@
-const allPosts: any[] = [];
+import crypto from "crypto";
+import { db } from "../datastore/database.ts";
 
 export const getAllPosts = (req, res) => {
-  res.send(allPosts);
+  const posts = db.getPosts();
+  console.log(posts);
+  res.render("index", {
+    posts,
+  });
 };
 
 export const createPost = (req, res) => {
-  const { body } = req;
-  allPosts.push(body);
+  const post = {
+    id: crypto.randomUUID(),
+    title: req.body.title,
+    url: req.body.url,
+    postedAt: Date.now(),
+  };
+  db.createPost(post);
   res.end();
 };
