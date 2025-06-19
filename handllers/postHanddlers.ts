@@ -9,6 +9,10 @@ export const getAllPosts = (req, res) => {
   });
 };
 
+export const create = (req, res) => {
+  res.render("createPost");
+};
+
 export const createPost = (req, res) => {
   const post = {
     id: crypto.randomUUID(),
@@ -17,5 +21,5 @@ export const createPost = (req, res) => {
     postedAt: Date.now(),
   };
   db.createPost(post);
-  res.end();
+  res.redirect("/create");
 };
