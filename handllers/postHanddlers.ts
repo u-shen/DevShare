@@ -3,9 +3,8 @@ import { db } from "../datastore/database.ts";
 
 export const getAllPosts = (req, res) => {
   const posts = db.getPosts();
-  console.log(posts);
   res.render("index", {
-    posts,
+    posts: posts?.reverse(),
   });
 };
 
@@ -21,5 +20,5 @@ export const createPost = (req, res) => {
     postedAt: Date.now(),
   };
   db.createPost(post);
-  res.redirect("/create");
+  res.redirect("/");
 };
